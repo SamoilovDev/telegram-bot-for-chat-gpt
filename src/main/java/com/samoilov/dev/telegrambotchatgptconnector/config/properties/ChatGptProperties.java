@@ -6,14 +6,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 
 @Getter
-@ConfigurationProperties(prefix = "telegram.bot")
+@ConfigurationProperties(prefix = "chat.gpt")
 @PropertySource(value = "classpath:application.properties")
-public class TelegramProperties {
+public class ChatGptProperties {
 
-    @Value("${telegram.bot.name}")
-    private String name;
-
-    @Value("${telegram.bot.token}")
+    @Value("${chat.gpt.token}")
     private String token;
+
+    @Value("${chat.gpt.url}")
+    private String url;
+
+    @Value("${chat.gpt.model}")
+    private String model;
 
 }

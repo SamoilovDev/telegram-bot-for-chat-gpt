@@ -12,12 +12,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.id.uuid.UuidGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -28,10 +27,8 @@ import java.sql.Timestamp;
 public abstract class BasicEntity {
 
     @Id
-    @Column(name = "id", length = 50)
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", type = UuidGenerator.class)
-    private Long id;
+    private UUID id;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
